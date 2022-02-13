@@ -1,0 +1,548 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+
+<script src="{% static '/js/script.js' %}" type="text/javascript"></script>  
+
+
+<nav class="bottom-navbar">
+    <a href="#home" class="fas fa-home"></a>
+    <a href="#featured" class="fas fa-list"></a>
+    <a href="#arrivals" class="fas fa-tags"></a>
+    <a href="#reviews" class="fas fa-comments"></a>
+    <a href="#blogs" class="fas fa-blog"></a>
+</nav>
+
+
+
+<!-- home section starts  -->
+
+<section style="height: 100vh; width: 100%;" class="home" id="home" >
+    
+    <div class="row">
+
+
+        <div class="content">
+            <h3>Musical Instruments</h3>
+            <p>"If there's any object in human experience that's a precedent for what a computer should be like, it's a musical instrument: a device where you can explore a huge range of possibilities through an interface that connects your mind and your body, allowing you to be emotionally authentic and expressive."</p>
+            <a href="#" class="btn">shop now</a>
+        </div>
+
+       
+    </div>
+
+</section>
+
+<!-- home section ense  -->
+
+<!-- icons section starts  -->
+
+<section  class="icons-container" >
+
+    <div class="icons">
+        <i class="fas fa-shipping-fast"></i>
+        <div class="content">
+            <h3>free shipping</h3>
+            <p>order over $100</p>
+        </div>
+    </div>
+
+   
+    <div class="icons">
+        <i class="fas fa-redo-alt"></i>
+        <div class="content">
+            <h3>easy returns</h3>
+            <p>10 days returns</p>
+        </div>
+    </div>
+
+    <div class="icons">
+        <i class="fas fa-headset"></i>
+        <div class="content">
+            <h3>24 hours</h3>
+            <p>Call on</p>
+        </div>
+    </div>
+
+</section>
+
+<!-- icons section ends -->
+
+<!-- featured section starts  -->
+
+<section class="featured" id="featured">
+
+    <h1 class="heading"> <span>Availabel Instruments</span> </h1>
+
+    <div class="swiper featured-slider">
+
+        <div class="swiper-wrapper">
+
+          
+            {% for kitab in stores %}
+            <div class="swiper-slide box">
+               
+                <div class="image">
+                    <img class="img-fluid  pic" src="{% static 'images/' %}{{kitab.Kitab_image}}">
+                
+                    >
+                </div>
+                <div class="content">
+                    <h3>{{kitab.kitab_name}}</h3>
+                    <div class="price">{{kitab.kitab_fromthePublisher}}</div>
+                    <div class="price">{{kitab.Kitab_product_Details}}</div>
+
+                    <a href="book_details/{{kitab.kitab_id}}" class="btn">Buy Now</a>
+                </div>
+            </div>
+
+            {% endfor %}
+
+<!-- 
+            <div class="swiper-slide box">
+               
+                <div class="image">
+                    <img src="/static/images/manage.jpeg" alt="">
+                </div>
+                <div class="content">
+                    <h3>featured books</h3>
+                    <div class="price">$15.99 <span>$20.99</span></div>
+                    <a href="#" class="btn">add to cart</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+             
+                <div class="image">
+                    <img src="/static/images/book34.jpeg" alt="">
+                </div>
+                <div class="content">
+                    <h3>featured books</h3>
+                    <div class="price">$15.99 <span>$20.99</span></div>
+                    <a href="#" class="btn">add to cart</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+               
+                <div class="image">
+                    <img src="/static/images/book35.jpeg" alt="">
+                </div>
+                <div class="content">
+                    <h3>featured books</h3>
+                    <div class="price">$15.99 <span>$20.99</span></div>
+                    <a href="#" class="btn">add to cart</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+               
+                <div class="image">
+                    <img src="/static/images/book37.jpeg" alt="">
+                </div>
+                <div class="content">
+                    <h3>featured books</h3>
+                    <div class="price">$15.99 <span>$20.99</span></div>
+                    <a href="#" class="btn">add to cart</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+               
+                <div class="image">
+                    <img src="/static/images/Book32.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3>featured books</h3>
+                    <div class="price">$15.99 <span>$20.99</span></div>
+                    <a href="#" class="btn">add to cart</a>
+                </div>
+            </div> 
+
+            <div class="swiper-slide box">
+               
+                <div class="image">
+                    <img src="/static/images/Book33.jpeg" alt="">
+                </div>
+                <div class="content">
+                    <h3>featured books</h3>
+                    <div class="price">$15.99 <span>$20.99</span></div>
+                    <a href="#" class="btn">add to cart</a>
+                </div>
+            </div>
+
+        </div> -->
+<!-- 
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div> -->
+
+    </div>
+
+</section>
+
+<!-- featured section ends -->
+
+<!-- newsletter section starts -->
+
+<section class="newsletter">
+
+    <form action="">
+        <h3>Be a part of our Family!</h3>
+        <h2 style="color: white;">"“Some people look like they sound better than they actually sound, because they look confident and have good posture," once musician,
+             a veteran of many auditions, says. "Other people look awful when they play but sound great. Other people have that
+              belabored look when they play, but you can't hear it in the sound. There is always this dissonance between what you see and hear""</h2>
+    </form>
+
+</section>
+
+<!-- newsletter section ends -->
+
+<!-- arrivals section starts  -->
+
+<section class="arrivals" id="arrivals">
+
+    <h1 class="heading"> <span>new arrivals</span> </h1>
+
+    <div class="swiper arrivals-slider">
+
+        <div class="swiper-wrapper">
+
+            <a href="#" class="swiper-slide box">
+                <div class="image">
+                    <img src="/static/images/hguitar1.jpeg" alt="">
+                </div>
+                <div class="content">
+                    <h3>Acoustic Guitar</h3>
+                    <div class="price">Rs 780</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="swiper-slide box">
+                <div class="image">
+                    <img src="/static/images/guitar2.jpeg" alt="">
+                </div>
+                <div class="content">
+                    <h3>Guitar</h3>
+                    <div class="price">1350</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="swiper-slide box">
+                <div class="image">
+                    <img src="/static/images/cvp-809gppe.jpeg" alt="">
+                </div>
+                <div class="content">
+                    <h3>Ukuelel
+                    </h3>
+                    <div class="price">Rs 900 </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="swiper-slide box">
+                <div class="image">
+                    <img src="/static/images/electricguitar4.jpeg" alt="">
+                </div>
+                <div class="content">
+                    <h3>Electric Guiat</h3>
+                    <div class="price">Rs 1000</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="swiper-slide box">
+                <div class="image">
+                    <img src="/static/images/flute6.jpeg" alt="">
+                </div>
+                <div class="content">
+                    <h3>Flute </h3>
+                    <div class="price">Rs 1200</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="swiper arrivals-slider">
+
+        <div class="swiper-wrapper">
+
+            <a href="#" class="swiper-slide box">
+                <div class="image">
+                    <img src="/static/images/electricguitar5.jpeg" alt="">
+                </div>
+                <div class="content">
+                    <h3>Electric guitar</h3>
+                    <div class="price">Rs 1850</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="swiper-slide box">
+                <div class="image">
+                    <img src="/static/images/piano7.jpeg" alt="">
+                </div>
+                <div class="content">
+                    <h3>Piano
+                    </h3>
+                    <div class="price">Rs 1600</div>
+                    <div class="btn">Add to cart</div>
+
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="swiper-slide box">
+                <div class="image">
+                    <img src="/static/images/drum3.jpeg" alt="">
+                </div>
+                <div class="content">
+                    <h3>Drum</h3>
+                    <div class="price">Rs1310 </div>
+                    <div class="btn">Add to cart</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </a>
+
+           
+
+            <a href="#" class="swiper-slide box">
+                <div class="image">
+                    <img src="/static/images/Tabala2.jpeg" alt="">
+                </div>
+                <div class="content">
+                    <h3>Tabala</h3>
+                    <div class="price">Rs 1350</div>
+                    <div class="btn">Add to cart</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- arrivals section ends -->
+
+<!-- deal section starts  -->
+
+<section class="deal">
+
+    <div class="content">
+        <h3> Sale!</h3>
+        <h1>Hurry Up!</h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde perspiciatis in atque dolore tempora quaerat at fuga dolorum natus velit.</p>
+        <a href="#" class="btn">shop now</a>
+    </div>
+
+    <div class="image">
+        <img src="/static/images/sale.webp" alt="">
+    </div>
+
+</section>
+
+<!-- deal section ends -->
+
+<!-- reviews section starts  -->
+
+<section class="reviews" id="reviews">
+
+    <h1 class="heading"> <span>client's reviews</span> </h1>
+
+    <div class="swiper reviews-slider">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide box">
+                <img src="/static/images/Rakhsya.jpeg" alt="">
+                <h3>Rakshya Bhatta</h3>
+                <p>Rythm is a great website to buy with the musical instruments, I use them for a lot to see more upcoming new insturumental things. It has always been my favourite website.</p><br>
+                <p>Thank You</p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="/static/images/tanuja.jpeg" alt="">
+                <h3>Tanuja Bastola</h3>
+                <p>This website (Rhythm) is beautiful! It is easy to buy the products sitting at home. The support has been remarkable from this website and the products from here is very reasonable.</p> <br>
+                <p>Thank You</p>
+                <div class="stars">
+                    <i class="fas fa-star" ></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="/static/images/Riya.jpeg" alt="">
+                <h3>Riya Sherstha</h3>
+                <p>I would highly recommend the best website(Rhythm). They are great to work with.It has always been plaeaseure to shop with this beautiful website.</p> <br>
+                <p>Thank you</p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+            <div class="swiper-slide box">
+                <img src="/static/images/kripa.jpeg" alt="">
+                <h3>Kripa Thapa</h3>
+                <p>I would highly recommend the best website(Rhythm). They are great to work with.It has always been plaeaseure to shop with this beautiful website.</p> <br>
+                <p>Thank You</p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+           
+
+        </div>
+
+    </div>
+    
+</section>
+
+<!-- reviews section ends -->
+
+<!-- blogs section starts  -->
+
+<section class="blogs" id="blogs">
+
+    <h1 class="heading"> <span>our blogs</span> </h1>
+
+    <div class="swiper blogs-slider">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide box">
+                <div class="image">
+                    <img src="/static/images/blog1.jpeg" alt="">
+                </div>
+                <div class="content">
+                    <h3>blog title goes here</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, odio.</p>
+                    <a href="#"  class="btn">read more</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <div class="image">
+                    <img src="/static/images/blog3.jpeg" alt="">
+                </div>
+                <div class="content">
+                    <h3>blog title goes here</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, odio.</p>
+                    <a href="#" class="btn">read more</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <div class="image">
+                    <img src="/static/images/blog2.jpeg" alt="">
+                </div>
+                <div class="content">
+                    <h3>blog title goes here</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, odio.</p>
+                    <a href="#" class="btn">read more</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <div class="image">
+                    <img src="/static/images/blog4.jpeg" alt="">
+                </div>
+                <div class="content">
+                    <h3>blog title goes here</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, odio.</p>
+                    <a href="#" class="btn">read more</a>
+                </div>
+            </div>
+
+          
+           
+        </div>
+
+    </div>
+
+
+</section>
+
+<!-- blogs section ends -->
+{% endblock  %}

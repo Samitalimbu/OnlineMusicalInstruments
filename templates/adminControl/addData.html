@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Data</title>
+</head>
+<body>
+
+
+    <h1>Musical Instruments</h1>
+    <div class="content">
+    <section>
+      <div class="register-wrapper">
+      <div class="register-block">
+      <h3 class="register-title">Adding Data</h3>
+        <p>Add your Data to display in the dashboard</p>
+        <form action="" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+        <label for="fname">Product Name</label><br>
+        <input type="text" name="kitab_name" placeholder="Prodct Name"/>
+
+        <label for="fname">Product price</label><br>
+        <input type="text" name="kitab_fromthePublisher" placeholder="Prodct Name"/>
+
+
+        <label for="fname">Choose Image</label><br>
+        <input type="file" name="Kitab_image"/>
+
+              <input type="submit" value="Submit"/>
+  
+        </form>
+      </div>
+      </div>
+    </section>
+  </div>
+    
+  
+<!--       
+      
+    <form action="" method="POST"enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="fname">Kitab Name:</label><br>
+        <input type="text" id="fname" name="kitab_name"><br>
+       
+        <label for="fname">Product Price</label><br>
+        <input type="text" id="fname" name="kitab_fromthePublisher"><br>
+
+      
+
+        <label for="fname">Kitab_product_Details:</label><br>
+        <input type="text" id="fname" name="Kitab_product_Details"><br>
+
+        <label for="fname">Kitab_image:</label><br>
+        <input type="file" id="fname" name="Kitab_image"><br>
+
+        <input type="submit" value="Submit"> -->
+
+
+        
+        
+      </form>
+
+
+
+</body>
+</html>
+{% endblock %} 
