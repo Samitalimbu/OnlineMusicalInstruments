@@ -4,11 +4,84 @@
 {% block content %}
 
 {% load static %}
+<main class="mt-5 pt-3"  >
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card text-white bg-primary mb-4" style="max-width:36rem;" >
+                    <div class="card-header"> Customer</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Total Customer</h5>
+                        <p class="card-text">Total Customer({{usercount}})</p>
+                    </div>
+                </div>
+            </div>
 
-<section>
-<h1>THis is the {{request.user.username}} dashboard</h1>
+            <div class="col-md-4">
+                <div class="card text-white bg-warning mb-4" style="max-width: 36rem;">
+                    <div class="card-header">Booking</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Total Booking</h5>
+                        <p class="card-text">Total Booking({{bookingcount}})</p>
+                    </div>
+                </div>
+            </div>
 
-<h2>Products</h2>
-</section>
+            <div class="col-md-4">
+                <div class="card text-white bg-success mb-4" style="max-width:36rem;">
+                    <div class="card-header">Products</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Total Products</h5>
+                        <p class="card-text">Total Products({{productcount}})</p>
+                    </div>
+                </div>
+            </div>
+
+           
+
+        </div>
+    </div>
+
+</main>
+{% comment %} <div class="hello" style="margin-top: 200px;">
+    <center><h1 style="color: #ccbdfd;">ADMIN DASHBOARD</h1></center>
+    <div class="totaluser" style="height: 200px; width: 33.33%; background-color: red; float: left;">
+        <h3>TOTAL USER : {{usercount}}</h3>
+    </div>
+    <div class="totalbooking" style="height: 200px; width: 33.33%; background-color: green; float: left;">
+        <h3>TOTAL BOOKING: {{bookingcount}}</h3>
+    </div>
+    <div class="totalproduct" style="height: 200px; width: 33.33%; background-color: blue; float: left;">
+        <h3>TOTAL PRODUCT: {{productcount}}</h3>
+    </div>
+</div> {% endcomment %}
+<!-- <section style="margin-top: 200px;">
+    <h1>Recent Orders</h1>
+    <h1>This is the {{request.user.username}} dashboard</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Date</th>
+                <th>Phone Number</th>
+                <th>Location</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for od in order%}
+            <tr>
+                
+                <td>{{od.your_name}}</td>
+                <td>{{od.address}}</td>
+                <td>{{od.date}}</td>
+                <td>{{od.phone_number}}</td>
+                <td>{{od.location}}</td>
+                
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</section> -->
 
 {% endblock %}

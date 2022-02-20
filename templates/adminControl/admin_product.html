@@ -1,4 +1,4 @@
-{% extends 'admin_base.html' %}
+ {% extends 'admin_base.html' %}
 {% load static %}
 {% block content %}
 
@@ -7,6 +7,11 @@
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!-- Fontawesome -->
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
   <style media="screen">
     a:link {
@@ -27,7 +32,7 @@
 	height:70px;
 	bottom:60px;
 	right:60px;
-	background-color:red;
+	background-color:#ccbdfd;";
 	color:#FFF;
 	border-radius:50px;
 	text-align:center;
@@ -37,17 +42,18 @@
 .my-float{
 	margin-top:22px;
 }
+
   </style>
 </head>
 
 
-<div class="container">
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h6 class="panel-title">Total Product List</h6>
+<div class="container9" style="color: #abc4ff;">
+  <div class="panel panel-primary" style="color: #abc4ff;">
+    <div class="panel-heading" style="background-color: #abc4ff;">
+      <h6 class="panel-title" style="color: #ffff;" >Total Product List</h6>
     </div>
-    <table class="table table-hover" id="dev-table">
-      <thead>
+    <table class="table table-hover" id="dev-table" ">
+      <thead style="color: #abc4ff;">
         <tr>
           <th>Name</th>
           <th>Image</th>
@@ -56,12 +62,16 @@
           <th>Delete</th>
         </tr>
       </thead>
-      {% for f in kitab %}
+      {% for f in Kitab %}
       {% if f %}
       <tr>
         <td>{{f.kitab_name}}</td>
         <td><img style="height: 20px; width:auto;" src="{{f.Kitab_image.url}}" alt=""></td>
         <td>{{f.kitab_fromthePublisher}}</td>
+       
+        <td><a href="/editproduct/{{f.kitab_id}}" class = "btn btn-primary text-light">Update</a></td>
+        <td><a href="/delete-product/{{f.kitab_id}}" class = "btn btn-danger text-light">Delete</a></td>
+
       </tr>
       {% else %}
      
@@ -74,6 +84,43 @@
       
     </table>
   </div>
+  <!-- PAGINATION STARTS -->
+    <nav aria-label="..." class="container pt-5">
+        {% if Kitab.has_other_pages %}
+        <ul class="pagination">
+            {% if Kitab.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ Kitab.previous_page_number }}"><i
+                        class="fas fa-angle-left"></i></a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <a class="page-link"><i class="fas fa-angle-left"></i></a>
+            </li>
+            {% endif %}
+
+            {% for i in Kitab.paginator.page_range %}
+            {% if Kitab.number == i %}
+            <li class="page-item active"><a class="page-link" href="#">{{i}}</a></li>
+            {% else %}
+            <li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+            {% endif %}
+            {% endfor %}
+
+            {% if Kitab.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ Kitab.next_page_number }}"><i
+                        class="fas fa-angle-right"></i></a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <a class="page-link"><i class="fas fa-angle-right"></i></a>
+            </li>
+            {% endif %}
+        </ul>
+        {% endif %}
+    </nav>
+    <!-- PAGINATION ENDS -->
 </div>
 <!-- add product floating button -->
 <a href="/addData" class="float">
@@ -81,4 +128,4 @@
 </a>
 
 
-{% endblock content %}
+{% endblock content %} 

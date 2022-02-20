@@ -1,0 +1,82 @@
+{% extends 'admin_base.html' %}
+
+{% block content %}
+
+{% load static %}
+<head>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+
+
+<section style="margin-top: 200px;">
+    <h1 style="color:#ccdbfd" position:center>Booked Items</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Date</th>
+                <th>Phone Number</th>
+                <th>Location</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for od in order%}
+            <tr>
+                
+                <td>{{od.your_name}}</td>
+                <td>{{od.address}}</td>
+                <td>{{od.date}}</td>
+                <td>{{od.phone_number}}</td>
+                <td>{{od.location}}</td>
+                <td><a href="/Bdelete-product/{{od.Mbooking_id}}" class = "btn btn-danger text-light">Cancel Book</a></td>
+
+                
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    <!-- PAGINATION STARTS -->
+    <nav aria-label="..." class="container pt-5">
+        {% if order.has_other_pages %}
+        <ul class="pagination">
+            {% if order.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ order.previous_page_number }}"><i
+                        class="fas fa-angle-left"></i></a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <a class="page-link"><i class="fas fa-angle-left"></i></a>
+            </li>
+            {% endif %}
+
+            {% for i in order.paginator.page_range %}
+            {% if order.number == i %}
+            <li class="page-item active"><a class="page-link" href="#">{{i}}</a></li>
+            {% else %}
+            <li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+            {% endif %}
+            {% endfor %}
+
+            {% if order.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ order.next_page_number }}"><i
+                        class="fas fa-angle-right"></i></a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <a class="page-link"><i class="fas fa-angle-right"></i></a>
+            </li>
+            {% endif %}
+        </ul>
+        {% endif %}
+    </nav>
+    <!-- PAGINATION ENDS -->
+    
+
+ 
+</section>
+</head>
+
+{% endblock %}

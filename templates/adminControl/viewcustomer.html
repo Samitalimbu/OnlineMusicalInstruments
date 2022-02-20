@@ -1,0 +1,106 @@
+{% extends 'admin_base.html' %}
+
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+
+
+<section >
+    <h1 style="color:#ccdbfd">Costumers</h1>
+    <table class="table">
+    <thead>
+        <tr>
+        <th>Username</th>
+        <th>First Name</th>
+        <th>Email</th>
+        </tr>
+        
+    </thead>
+    <tbody>
+        {% for c in user %}
+        <tr>
+        <td>{{ c.username }}</td>
+        <td>{{ c.first_name }}</td>
+        <td>{{ c.email }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table> 
+<!-- PAGINATION STARTS -->
+<nav aria-label="..." class="container pt-5">
+    {% if user.has_other_pages %}
+    <ul class="pagination">
+        {% if user.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ user.previous_page_number }}"><i
+                    class="fas fa-angle-left"></i></a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link"><i class="fas fa-angle-left"></i></a>
+        </li>
+        {% endif %}
+
+        {% for i in user.paginator.page_range %}
+        {% if user.number == i %}
+        <li class="page-item active"><a class="page-link" href="#">{{i}}</a></li>
+        {% else %}
+        <li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+        {% endif %}
+        {% endfor %}
+
+        {% if user.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ user.next_page_number }}"><i
+                    class="fas fa-angle-right"></i></a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link"><i class="fas fa-angle-right"></i></a>
+        </li>
+        {% endif %}
+    </ul>
+    {% endif %}
+</nav>
+<!-- PAGINATION ENDS -->
+
+
+
+</section> 
+
+{% endblock %}
+
+
+{% comment %} {% extends 'admin_base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<section style="margin-top: 200px;">
+    <h1 style="color:#ccdbfd">Customer</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>First Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for c in user%}
+            <tr>
+                
+                <td>{{c.username}}</td>
+                <td>{{c.first_name}}</td>
+                <td>{{c.email}}</td>
+            
+                
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</section>
+
+{% endblock %} {% endcomment %}

@@ -1,6 +1,6 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'admin_base.html' %}
 {% load static %}
+{% block content %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,10 +29,11 @@
         <input type="text" name="kitab_fromthePublisher" placeholder="Prodct Name"/>
 
 
-        <label for="fname">Choose Image</label><br>
-        <input type="file" name="Kitab_image"/>
+        <label for="Image"> Product Image</label><br>
+        <input type="file" name="Kitab_image"  />
 
-              <input type="submit" value="Submit"/>
+        
+        <input type="submit" value="Submit"/>
   
         </form>
       </div>

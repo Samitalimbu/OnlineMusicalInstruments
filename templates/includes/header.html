@@ -1,98 +1,112 @@
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hamro Kitab</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hamro Kitab</title>
 
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+  />
 
-    <!-- font awesome cdn link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- font awesome cdn link  -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  />
 
-    <!-- custom css file link  -->
-    <link rel="stylesheet" href="/static/css/style.css">
+  <!-- custom css file link  -->
+  <link rel="stylesheet" href="/static/css/style.css" />
 
-    <script src="/static/js/script.js"></script>
-
-    
-
+  <script src="/static/js/script.js"></script>
 </head>
+
 <body>
-<header class="header">
-
+  <header class="header">
     <div class="header-1">
+      <a href="#" class="logo">
+       
+      </a>
 
-        <a href="#" class="logo"> <img src="/static/images/logo.png" style="height: 30px; width: 90px;" alt=""> </a>
+      <h2
+        style="
+          font-family: 'ZCOOL XiaoWei';
+          font-size: 40px;
+          font-style: italic;
+          color: #e2a53f;
+        "
+        
+      >
+        Music is the universal language
+      </h2>
 
-        <form action="" class="search-form">
-            <input type="search" name="" placeholder="search here..." id="search-box">
-            <label for="search-box" class="fas fa-search"></label>
-        </form>
-
-
-    
-        <div class="icons">
-            <div id="search-btn" class="fas fa-search"></div>
-            <!-- <a href="#" class="fas fa-heart"></a> -->
-        </div>
-
+      <div class="icons">
+        <div id="search-btn" class="fas fa-search"></div>
+        <!-- <a href="#" class="fas fa-heart"></a> -->
+      </div>
     </div>
 
-    <div class="header-2" style="height: 60px;">
-        <nav class="navbar" >
-            <a href="{% url 'home' %}">home</a>
-            <a href="#featured">featured</a>
-            <a href="#arrivals">New arrivals</a>
-            <a href="#reviews">reviews</a>
-            <a href="#blogs">blogs</a>
-            <a href="/aboutus">About Us</a>
-            <a href="/contact">Contact Us</a>
-
+    <div class="header-2" style="height: 60px">
+      <nav class="navbar">
+        <a href="{% url 'home' %}">home</a>
+        <a href="#featured">featured</a>
+        <a href="#arrivals">New arrivals</a>
+        <a href="#reviews">reviews</a>
+        <a href="#blogs">blogs</a>
 
         {% if request.user.is_authenticated %}
 
-        <a href="#" class="fas fa-shopping-cart"></a>
-
-        <a href="javascript:{document.getElementById('logout').submit()}" class="sign-out"><i class="fa fa-sign-out"></i>Logout</a>
+        <a href="/aboutus">About Us</a>
+        <a href="/contact">Contact Us</a>
+        <div class="btn-group dropstart">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Welcome
+          </button>
+          <ul class="dropdown-menu" style="background-color: #c2a487">
+            <a
+              href="javascript:{document.getElementById('logout').submit()}"
+              class="sign-out"
+              ><i class="fa fa-sign-out"></i>Logout</a
+            >
+            <a class="dropdown-item" href="/profile">My profile</a>
+          </ul>
+        </div>
 
         <form id="logout" action="{% url 'logout' %}" method="POST">
-
           {% csrf_token %}
-
-          <input type="hidden">
-
+          <input type="hidden" />
         </form>
-
-       
-
         {% else %}
-
-        <div class="dropdown">
-
-            <a class="fa fa-user fa-2x dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white; cursor:pointer;"></a>
-
-         
-
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" >
-
-              <a class="dropdown-item" href="adminlogin">Admin</a>
-
-              <a class="dropdown-item" href="login">User</a>
-
-            </div>
-
+        <div class="btn-group dropstart">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            LOGIN
+          </button>
+          <ul class="dropdown-menu" style="background-color: #c2a487">
+            <a class="dropdown-item" href="adminlogin">Admin</a>
+            <a class="dropdown-item" href="login">User</a>
+          </ul>
         </div>
-         {% endif %}
-
-
-
-
-
-
-        </nav>
+        <!-- <div class="dropdown">
+                    <a class="fa fa-user fa-2x dropdown-toggle" role="button" id="dropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        style="color:white; cursor:pointer;"></a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="adminlogin">Admin</a>
+                        <a class="dropdown-item" href="login">User</a>
+                    </div>
+                </div> -->
+        {% endif %}
+      </nav>
     </div>
-
-</header>
+  </header>
 </body>
-
