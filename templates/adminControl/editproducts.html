@@ -1,0 +1,57 @@
+
+{% extends 'admin_base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Products</title>
+</head>
+<body  >
+
+
+    <div class="content" style="background-image: url(//static/images/sale.jpeg);" >
+    <section>
+      <div class="register-wrapper">
+      <div class="register-block">
+      <h3 class="register-title">Edit Products</h3>
+        <p>Please check the correct details to buy your products</p>
+        <form action="/update_product/{{kitabs.kitab_id}} " method="post"  >
+
+          {% csrf_token %}
+
+        
+        <label for="fname">Name</label><br>
+        <input type="text" name="kitab_name" value="{{kitabs.kitab_name}}">
+
+
+        <label for="fname">Price</label><br>
+        <input type="text" name ="kitab_fromthePublisher" value="{{kitabs.kitab_fromthePublisher}}">
+
+        <label for="fname">Image</label><br>
+        <input type="file" name="Kitab_image">
+        <label>{{kitabs.Kitab_image}} </label>
+        <input type ="submit" value="Update"/>
+
+  
+        </form>
+      </div>
+      </div>
+    </section>
+  </div>
+
+</form>
+
+
+
+</body>
+</html>
+{% endblock %} 
+
+

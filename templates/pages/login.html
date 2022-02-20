@@ -40,7 +40,7 @@
                 <h1>Sign in</h1>
                 <input type="Username" placeholder="Username" required name="username"/>
                 <input type="password" placeholder="Password" required name="password"/>
-                <a href="#">Forgot your password?</a>
+                <a href="{% url 'password_reset' %}">Forgot your password?</a>
                 {% include 'includes/message.html' %}
                 <button>Sign In</button>
             </form>
